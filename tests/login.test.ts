@@ -18,6 +18,8 @@ test('Login with Vivi', async ({page}) => {
     const header = await storePage.header.textContent()
     const username = await storePage.usernameText.textContent()
 
+    console.log('Username displayed:', username);
+
     expect(header).toBe("Store")
     expect(username).toContain('vivi');
     
