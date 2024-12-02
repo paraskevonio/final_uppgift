@@ -16,7 +16,7 @@ test('Login with Vivi', async ({page}) => {
     await loginPage.login("Vivi", password,"consumer")
 
     const header = await storePage.header.textContent()
-    const username = await storePage.usernameText.textContent()
+    const username = await storePage.usernameDisplay.textContent()
 
     console.log('Username displayed:', username);
 
