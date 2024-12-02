@@ -14,5 +14,9 @@ export class StorePage {
         this.header = page.locator('h1')      
 
     }
+    async getUsername(){
+        this.page.waitForTimeout(200)
+        return this.usernameDisplay.textContent()
+    }
     
 }
