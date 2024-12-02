@@ -2,13 +2,18 @@ import { expect, test } from "@playwright/test";
 import { LoginPage } from "../pages/loginpage";
 import { StorePage } from "../pages/storepage";
 
+let password: string
 test('Login with Vivi', async ({page}) => {
     const loginPage = new LoginPage(page)
     const storePage = new StorePage(page)
 
+    if (process.env.PASSWORD !== undefined) {
+        password = process.env.PASSWORD
+    }
+
     await page.goto("https://hoff.is/login")
 
-    await loginPage.login("Vivi", "sup3rs3cr3t","consumer")
+    await loginPage.login("Vivi", password,"consumer")
 
     const header = await storePage.header.textContent()
 
